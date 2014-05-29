@@ -326,7 +326,11 @@
             if (attrs.id) {
               $label.attr('for', attrs.id);
             }
-            $(element).parent().append($label);
+            if ($(element).parent().hasClass('input-group')) {
+              $(element).parent().after($label);
+            } else {
+              $(element).parent().append($label);
+            }
             break;
           }
           _results.push(parent = parent.parent());
